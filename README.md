@@ -1,6 +1,6 @@
 <div align="center">
   <img src="images/logo.jpg" alt="Plasma Frequency Profile" width="10%" />
-  <h3>A note on an inversion algorithm for vertical ionograms for the prediction of plasma frequency profiles</h3>
+  <h1>A note on an inversion algorithm for vertical ionograms for the prediction of plasma frequency profiles</h1>
 
   A quasi-parabolic approach for inverting ionograms
  
