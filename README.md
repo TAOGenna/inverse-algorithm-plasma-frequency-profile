@@ -30,6 +30,19 @@ This program expects `.SAO` files, which are commonly used for sharing remote se
   <img src="images/progress_bar.png" alt="Image 3" width="95%"/>
 </p>
 
+## Watching the reconstruction step by step
+`make_animation.py` is a thin driver that mirrors `handle_f_layer`'s loop and saves a side-by-side frame after each QP iteration (left: plasma frequency profile being built, right: original vs reconstructed ionogram). Run it with `python3 make_animation.py`; PNG frames land in `anim_frames/`. Stitch them into a video with:
+
+```bash
+ffmpeg -y -framerate 4 -i anim_frames/frame_%03d.png \
+  -vf "fps=30,pad=ceil(iw/2)*2:ceil(ih/2)*2" \
+  -c:v libx264 -pix_fmt yuv420p -movflags +faststart inversion_progress.mp4
+```
+
+<p align="center">
+  <img src="inversion_progress.gif" alt="Reconstruction progress" width="80%"/>
+</p>
+
 ## References
 
 1. L. Niu, L. Wen, C. Zhou, and M. Deng, "A profile inversion method for vertical ionograms," *AIP Advances*, vol. 14, no. 6, p. 065034, Jun. 2024. doi: [10.1063/5.0208687](https://doi.org/10.1063/5.0208687).
